@@ -5,26 +5,38 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  # Users
   get '/users' => 'users#index'
   get '/users/:id' => 'users#show'
   post '/users' => 'users#create'
-
+  # Sessions
   post '/sessions' => 'sessions#create'
-
+  #Rooms
   get '/rooms' => 'rooms#index'
   get '/rooms' => 'rooms#show'
   post'/rooms' => 'rooms#create'
   patch '/rooms' => 'rooms#update'
   delete '/rooms' => 'rooms#destroy'
-
+  #Third Party API
   get '/information/fetch_and_store' => 'information#fetch_and_store_data'
-
+  #Room Images
   get '/roomimages' => 'roomimages#index'
-  get '/roomimages' => 'roomimages#show'
+  get '/roomimages/:id' => 'roomimages#show'
   post'/roomimages' => 'roomimages#create'
-  patch '/roomimages' => 'roomimages#update'
-  delete '/roomimages' => 'roomimages#destroy'
-
+  patch '/roomimages/:id' => 'roomimages#update'
+  delete '/roomimages/:id' => 'roomimages#destroy'
+  #Reservations
+  get '/reservations' => 'reservations#index'
+  get '/reservations/:id' => 'reservations#show'
+  post'/reservations' => 'reservations#create'
+  patch '/reservations/:id' => 'reservations#update'
+  delete '/reservations/:id' => 'reservations#destroy'
+  #Reviews
+  get '/reviews' => 'reviews#index'
+  get '/reviews/:id' => 'reviews#show'
+  post'/reviews' => 'reviews#create'
+  patch '/reviews/:id' => 'reviews#update'
+  delete '/reviews/:id' => 'reviews#destroy'
 
   # Defines the root path route ("/")
   # root "posts#index"

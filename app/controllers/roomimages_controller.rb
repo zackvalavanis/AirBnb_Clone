@@ -1,8 +1,4 @@
 class RoomimagesController < ApplicationController
-  class RoomsController < ApplicationController
-    require 'uri'
-    require 'net/http'
-    
     def index 
       if current_user 
         @roomimages = RoomImage.all 
@@ -11,6 +7,8 @@ class RoomimagesController < ApplicationController
         render json: { message: 'Unauthorized'}, status: :unauthorized
       end 
     end
+  end 
+
   
   #   def show 
   #     @room = Room.find_by(id: params[:id])
@@ -66,4 +64,4 @@ class RoomimagesController < ApplicationController
   #   end 
   # end
 
-end
+# end
