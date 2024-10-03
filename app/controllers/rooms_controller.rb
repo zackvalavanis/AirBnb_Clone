@@ -12,8 +12,12 @@ class RoomsController < ApplicationController
   end
 
   def show 
-    @room = Room.find_by(id: params[:id])
-    render :show
+    if current_user
+      @room = Room.find_by(id: params[:id])
+      render :show
+    else
+      render json: { message: 'Unauthorized'}, status: :unauthorized
+    end
   end
 
   def create

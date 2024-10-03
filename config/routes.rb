@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   #Rooms
   get '/rooms' => 'rooms#index'
-  get '/rooms' => 'rooms#show'
+  get '/rooms/:id' => 'rooms#show'
   post'/rooms' => 'rooms#create'
-  patch '/rooms' => 'rooms#update'
-  delete '/rooms' => 'rooms#destroy'
+  patch '/rooms/:id' => 'rooms#update'
+  delete '/rooms/:id' => 'rooms#destroy'
   #Third Party API
   get '/information/fetch_and_store' => 'information#fetch_and_store_data'
   #Room Images
