@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
 
   get '/rooms' => 'rooms#index'
-  get '/rooms/:id' => 'rooms#show'
+  get '/rooms' => 'rooms#show'
   post'/rooms' => 'rooms#create'
   patch '/rooms' => 'rooms#update'
   delete '/rooms' => 'rooms#destroy'
+
+  get '/information/fetch_and_store' => 'information#fetch_and_store_data'
 
 
   # Defines the root path route ("/")

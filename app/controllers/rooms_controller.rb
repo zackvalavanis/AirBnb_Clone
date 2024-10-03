@@ -1,4 +1,7 @@
 class RoomsController < ApplicationController
+  require 'uri'
+  require 'net/http'
+  
   def index 
     if current_user 
       @rooms = Room.all 
@@ -58,7 +61,6 @@ class RoomsController < ApplicationController
   def destroy 
     @room = Room.find_by(id: params[:id])
     @room.destroy
-    rende
-    r json: { message: 'The room has been destroyed'}
+    render json: { message: 'The room has been destroyed'}
   end 
 end
