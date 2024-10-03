@@ -1,2 +1,9 @@
-json.extract! reservation, :id, :created_at, :updated_at
-json.url reservation_url(reservation, format: :json)
+json.id reservation.id
+json.user_id reservation.user_id
+json.room_id reservation.room_id
+json.start_date reservation.start_date
+json.end_date reservation.end_date
+json.price reservation.price
+json.total reservation.total
+json.reviews reservation.reviews
+
