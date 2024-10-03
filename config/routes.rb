@@ -19,6 +19,12 @@ Rails.application.routes.draw do
 
   get '/information/fetch_and_store' => 'information#fetch_and_store_data'
 
+  get '/roomimages' => 'roomimages#index'
+  get '/roomimages' => 'roomimages#show'
+  post'/roomimages' => 'roomimages#create'
+  patch '/roomimages' => 'roomimages#update'
+  delete '/roomimages' => 'roomimages#destroy'
+
 
   # Defines the root path route ("/")
   # root "posts#index"
