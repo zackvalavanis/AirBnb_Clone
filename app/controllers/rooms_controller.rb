@@ -3,21 +3,13 @@ class RoomsController < ApplicationController
   require 'net/http'
   
   def index 
-    if current_user 
       @rooms = Room.all 
       render :index
-    else 
-      render json: { message: 'Unauthorized'}, status: :unauthorized
-    end 
   end
 
   def show 
-    if current_user
       @room = Room.find_by(id: params[:id])
       render :show
-    else
-      render json: { message: 'Unauthorized'}, status: :unauthorized
-    end
   end
 
   def create
@@ -28,7 +20,7 @@ class RoomsController < ApplicationController
       state: params[:state],
       price: params[:price],
       description: params[:description],
-      home_type: params[:home_type],
+      home_type: params[:home_type],  
       room_type: params[:room_type],
       total_occupancy: params[:total_occupancy],
       total_bedrooms: params[:total_bedrooms],
