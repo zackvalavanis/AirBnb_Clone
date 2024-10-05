@@ -19,25 +19,22 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(
-      user_id: current_user,
+      user_id: params[:user_id],
       room_id: params[:room_id], 
       start_date: params[:start_date], 
       end_date: params[:end_date], 
       price: params[:price], 
+      tax: params[:tax],
       total: params[:total]
     )
     @reservation.save 
+    render :show
   end 
 
-  
-
-
-
-
-
-
-
-
-
+  def destroy 
+    @reservation = Reservation.find_by(id: params[:id]);
+    @reservation.destroy 
+    render json: {message: 'The reservation has been canceled.'}
+  end 
 
 end
