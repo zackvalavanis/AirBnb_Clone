@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   def index 
-    @users = User.all 
-    render :index
+    if current_user
+      @users = User.all 
+      render :index
+    else 
+      render json: { message: 'Please log in to view reservations'}
+    end 
   end
 
   def show 
