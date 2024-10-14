@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
   belongs_to :user
   has_many :room_images
-  belongs_to :reservation
+  has_many :reservations
+  has_many :reviews
 end

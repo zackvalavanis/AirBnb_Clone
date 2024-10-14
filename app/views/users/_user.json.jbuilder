@@ -1,8 +1,7 @@
-# app/views/users/_user.json.jbuilder
 json.id user.id
 json.name user.name
 json.email user.email
-json.password user.password
+# Do not include the password in the JSON response for security reasons
 
 json.rooms user.rooms do |room| 
   json.id room.id
@@ -26,4 +25,9 @@ json.rooms user.rooms do |room|
   end
 end
 
-json.reservations user.reservations
+json.reservations user.reservations do |reservation|
+  json.id reservation.id
+  json.start_date reservation.start_date
+  json.end_date reservation.end_date
+  # Include other reservation attributes as needed
+end

@@ -1,6 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :user
-  has_many :rooms
+  belongs_to :rooms
   has_many :reviews
 
   def tax

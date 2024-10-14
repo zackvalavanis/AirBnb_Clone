@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  class ReservationController < ApplicationController
 
     def index 
       if current_user 
@@ -17,7 +16,7 @@ class ReviewsController < ApplicationController
   
     def create
       @review = Review.new(
-        reservation_id: params[:reservation_id],
+        room_id: params[:room_id],
         rating: params[:rating],
         comment: params[:comment]
       )
@@ -31,7 +30,7 @@ class ReviewsController < ApplicationController
     def update 
       @review = Review.find_by(id: params[:id])
       if  @review.update(
-        reservation_id: params[:reservation_id] || @review.reservation_id,
+        room_id: params[:room_id] || @review.room_id,
         rating: params[:rating] || @reservation.rating,
         comment: params[:comment] || @reservation.comment
       )
@@ -46,6 +45,5 @@ class ReviewsController < ApplicationController
       @review.destroy
       render json: { message: 'The reservation has been destroyed'}
     end 
-  end
 end
 
